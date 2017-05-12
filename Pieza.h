@@ -4,19 +4,14 @@
 class Pieza{
  
  private:
-  int X;
-  int Y;
+  char color;
 
  public:
   Pieza();
-  Pieza(int,int);
+  Pieza(char);
   
-  void setX(int);
-  int getX();
-  void setY(int);
-  int getY();
-
-
+  void setColor(char);
+  char getColor();
 
 
 };

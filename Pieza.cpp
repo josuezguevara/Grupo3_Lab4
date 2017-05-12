@@ -4,23 +4,16 @@ Pieza::Pieza(){
 
 }
 
-Pieza::Pieza(int X, int Y){
- this->X=X;
- this->Y=Y;
+Pieza::Pieza(char color){
+ this->color=color;
 }
 
-int Pieza::getX(){
- return X;
+char Pieza::getColor(){
+ return color;
 }
 
-int Pieza::getY(){
- return Y;
+
+void Pieza::setColor(char color){
+ this->color=color;
 }
 
-void Pieza::setX(int pX){
- X=pX;
-}
-
-void Pieza::setY(int pY){
- Y=pY;
-}
