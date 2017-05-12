@@ -6,13 +6,13 @@ void printMatriz(int, Pieza**);
 using namespace std;
 
 int main(){
-  Pieza*** Tablero[][] = new Pieza**[8]
+  Pieza*** Tablero = new Pieza**[8];
   for(int i = 0; i < 8; i++){
      Tablero[i] = new Pieza*[8];
   }
   for(int i = 0; i < 8; i++){
      for(int j = 0; j < 8; j++){
-	if((i == 0 && j == 1) || (i == 0 4&& j == 3) || (i == 0 && j == 5) || (i == 0 && j == 7)){
+	if((i == 0 && j == 1) || (i == 0 && j == 3) || (i == 0 && j == 5) || (i == 0 && j == 7)){
 	   Tablero ->  Marine('B');
 	} else if ((i == 1 && j == 0) || (i == 1 && j == 2) || (i == 1 && j == 4) || (i == 1 && j == 6)) {
 
@@ -29,7 +29,7 @@ int main(){
 	}
      }
   }
-  printMatriz(8, )
+  printMatriz(8, );
   
   return 0;
 }
@@ -42,11 +42,4 @@ void printMatriz(int size, Pieza** matrix){
                 cout << endl;
         }
 }
-
-<<<<<<< HEAD
-int main(){
-  
-=======
->>>>>>> 98064cfce42416f5d6e52f14f13b4310ed8f5d66
-
 
