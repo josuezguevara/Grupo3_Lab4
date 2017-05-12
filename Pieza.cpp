@@ -1,4 +1,6 @@
 #include "Pieza.h"
+#include <string>
+
 
 Pieza::Pieza(){
 

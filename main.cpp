@@ -1,9 +1,11 @@
 #include "Pieza.h"
 #include "Marine.h"
 #include <iostream>
+#include <string>
+#include <ncurses.h>
 
+void printMatrix(Pieza***);
 
-void printMatriz(int, Pieza**);
 
 using namespace std;
 
@@ -32,14 +34,59 @@ int main(){
      }
   }
   
+
+  printMatrix(Tablero);
+
+  //libera matrix
+  for(int i=0; i<8;i++){
+   for(int j=0; i<8;j++){
+    delete Tablero[i][j];
+    Tablero[i][j]=NULL;
+   }
+  }
+
+  for (int i=0; i<8;i++){
+   delete Tablero[i];
+  }
+  delete Tablero;
+
+  getch();
+  endwin();
   return 0;
 }
 
-void printMatriz(int size, Pieza** matrix){
-        for(int i = 0; i < size; i++){
-                for(int j = 0; j < size; j++) {
-                         cout << "  " << "algo";
-                }
-                cout << endl;
-        }
+void printMatrix(Pieza*** matrix){
+ for(int i=0; i<8; i++){
+  for (int j=0; j<8; j++){
+   if (matrix[i][j] != NULL){
+    if (matrix[i][j] -> getColor()== 'B'){//Black
+     printw("[");
+     start_color();
+     init_pair(1, COLOR_WHITE, COLOR_BLACK);
+     attron(COLOR_PAIR(1));
+     string color;
+     color = matrix[i][j]-> getColor();
+     printw(color.c_str());
+     attroff(COLOR_PAIR(1));
+     printw("]");
+     }
+     else if (matrix[i][j]-> getColor() == 'W'){//white
+      printw("[");
+      start_color();
+      init_pair(2, COLOR_BLACK, COLOR_WHITE);
+      attron(COLOR_PAIR(2));
+      string color;
+      color= matrix[i][j]->getColor();
+      printw(color.c_str());
+      attroff(COLOR_PAIR(2));
+      printw("]");
+     }
+    }
+    else{
+     printw("[ ]");
+    }
+   }
+   printw("\n");
+ }
 }
+
